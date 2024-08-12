@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/interact.css">
+    <title>Blog</title>
+</head>
+<body>
+    <dialog id="blog" class="blog-form-section " role="dialog">
+        <div class="close-btn">
+          <span id="close-dialog">
+            <i class="fa-solid fa-xmark fa-2xl"></i>
+          </span>
+        </div>
+        <div class="info">
+          <h3>Share your experience</h3>
+          <div class="blog-upload-form">
+            <form method="post" action="/submit" id="blog-form" enctype="multipart/form-data">
+              <div class="input-field">
+                  <label for="user-name">User Name</label>
+                  <input type="text" id="user-name" name="username" placeholder="Your Full Name" required>
+              </div>
+              <div class="input-field">
+                  <label for="user-email">User Email</label>
+                  <input type="email" id="user-email" name="useremail" placeholder="Your Email" required>
+              </div>
+              <div class="input-field">
+                  <label for="blog-heading">Blog heading</label>
+                  <input type="text" id="blog-heading" name="blogheading" placeholder="Blog heading">
+                  <span class="error" id="headingError"></span>
+              </div>
+              <div class="input-field">
+                  <label for="fileInput">Image</label>
+                  <input type="file" id="fileInput" name="image" accept="image/*">
+                  <div id="previewContainer">
+                      <img id="preview" src="" alt="Image Preview">
+                  </div>
+              </div>
+              <div class="input-field">
+                  <label for="message">Write Your Experience</label>
+                  <textarea name="message" id="message" placeholder="Minimum 150 words"></textarea>
+                  <span class="error" id="msgError"></span>
+              </div>
+              <button type="submit">Submit</button>
+          </form>
+          </div>
+        </div>
+      </dialog>
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="#">TraditioNet</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Heritage</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="interact.html">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Maps</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+        </ul>
+    </div>
+    <button class="btn logout-btn" id="auth-button" type="button">LogOut</button>
+</nav>
+</header>
+
+<main class="main-container">
+    <section class="container">
+      <div class="blogs-section sc-xl">
+        <h1 class="heading">Journey Through Our Thoughts: Blogs and Stories</h1>
+        <div class="blog-banner" id="topBlogSection">
+          <!-- top blog -->
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="featured-blog sc-xl">
+        <div>
+          <h2 class="heading">Featured Blog Post</h2>
+          <button type="button" id="open-dialog">Add Blog</button>
+        </div>
+        <div class="blog-container scrollbar" id="blogContainer">
+          <!-- blog cards -->
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="trending-blog sc-xl">
+        <h2 class="heading mb-1">Your Post</h2>
+        <div class="blog-container scrollbar" id="trendingBlogs">
+          <!-- trending blogs -->
+        </div>
+      </div>
+    </section>
+  </main>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<footer class="footer bg-dark text-white pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <br>
+                <p>Developed By Nithish & Muthu Raja<br>MCA Department,PSG Tech</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h5>Pages</h5>
+                <ul class="list-unstyled">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="explore.html">Heritage sites</a></li>
+                        <li><a href="interact.html">Engage</a></li>
+                        <li><a href="Maps.html">Maps</a></li>
+                        <li><a href="contact.html">Contact us</a></li>
+                        <li><a href="about.html">About us</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Important Links</h5>
+                <ul class="list-unstyled">
+                        <li><a href="https://indianculture.gov.in/">Indian Culture</a></li>
+                        <li><a href="https://www.incredibleindia.org/content/incredible-india-v2/en.html">Incredible!ndia</a></li>
+                        <li><a href="http://www.indiaculture.nic.in/hi">Ministry of Culture</a></li>
+                        <li><a href="https://swachhbharatmission.gov.in/SBMCMS/index.htm">Swachh Bharat</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <hr class="bg-white">
+            <p>Copyright © 2024 All right reserved</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+  // Select dialog elements
+  const openDialog = document.querySelector("#open-dialog");
+  const closeDialog = document.querySelector("#close-dialog");
+  const blog = document.querySelector("#blog");
+
+  // Function to check user login status
+  function isUserLoggedIn() {
+    return localStorage.getItem("isLoggedIn") === "true";
+  }
+
+  // Event listener for opening the dialog
+  openDialog.addEventListener("click", () => {
+    if (!isUserLoggedIn()) {
+      alert("Please sign in first");
+    } else {
+      blog.showModal(); // Show the dialog
+    }
+  });
+
+  // Event listener for closing the dialog
+  closeDialog.addEventListener("click", () => {
+    blog.close(); // Close the dialog
+  });
+});
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('/user-info')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        document.getElementById('user-name').value = data.username;
+        document.getElementById('user-email').value = data.useremail;
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+  });
+
+  document.getElementById('fileInput').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.getElementById('preview');
+            preview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+  </script>
+</body>
+</html>

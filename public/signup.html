@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/signup.css">
+    <!-- BoxIcons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Sign Up - TraditioNet</title>
+</head>
+<body>
+    <section class="container forms">
+        <div class="form signup">
+            <h3 class="heading">Sign Up</h3>
+            <form id="signup-form" class="content">
+                <div class="field input">
+                    <input type="email" name="email" placeholder="Enter your Email" required />
+                </div>
+
+                <div class="field input">
+                    <input type="text" name="uname" placeholder="Enter your Username" required />
+                </div>
+
+                <div class="field input">
+                    <input type="password" name="password" placeholder="Enter your new Password" class="password" required />
+                    <i class='bx bx-hide hide-show'></i>
+                </div>
+
+                <div class="field input">
+                    <input type="password" name="confirmPassword" placeholder="Confirm Password" class="password" required />
+                    <i class='bx bx-hide hide-show'></i>
+                </div>
+
+                <div class="space"></div>
+
+                <div class="field btn">
+                    <button type="submit">Sign Up</button>
+                </div>
+
+                <div class="link sign-login">
+                    <span>Already have an Account!</span>
+                    <a href="login.html" class="forget">Login</a>
+                </div>
+
+                <div class="line"></div>
+                <!-- Other Sign Up Options -->
+
+                <div class="thirdLogin field facebook">
+                    <i class='bx bxl-facebook-circle face-icon'></i>
+                    <span>Sign Up with Facebook</span>
+                </div>
+                
+                <div class="thirdLogin field google">
+                    <i class='bx bxl-google face-icon'></i>
+                    <span>Sign Up with Google</span>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

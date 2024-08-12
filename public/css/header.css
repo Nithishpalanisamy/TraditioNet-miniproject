@@ -1,0 +1,30 @@
+.navbar-custom {
+  background-color: #004ba0;
+  min-height: 80px; /* Blue background color */
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+  color: white;
+  padding-left: 30pt; /* White text color */
+}
+.navbar-custom .nav-link:hover {
+  color: #d0e98b;
+  background-color:#3b7dc8;
+  border-radius: 25px;
+   /* Light grey on hover */
+}
+.navbar-custom .nav-link {
+  margin: 0 15px; /* Add horizontal space between links */
+}
+.logout-btn {
+  border: 1px solid #004ba0;
+  color: #004ba0;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px 15px;
+  margin-right: 20pt;
+}
+.logout-btn:hover {
+  background-color: #3b7dc8;
+  color: white;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quora Clone Home</title>
+    <link rel="stylesheet" href="../public/css/postblog.css">
+</head>
+<body>
+    <h1>Welcome to My Quora Clone</h1>
+    <button id="createPostBtn">Create a Post</button>
+    <button onclick="location.href='/list'">View Posts</button>
+
+    <!-- Post Form Dialog -->
+    <div id="postFormDialog" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create a Post</h2>
+            <form id="postForm" action="/post" method="POST" enctype="multipart/form-data">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+z
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="photo">Photo:</label>
+                <input type="file" id="photo" name="photo">
+
+                <label for="topic">Topic:</label>
+                <input type="text" id="topic" name="topic" required>
+
+                <label for="paragraph">Paragraph:</label>
+                <textarea id="paragraph" name="paragraph" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="post-container">
+        <!-- This is where the list of posts will be rendered -->
+        <div id="post-container">
+            <% posts.forEach(post => { %>
+                <div class="card">
+                    <% if (post.photo) { %>
+                        <img src="<%= post.photo %>" alt="Post Image">
+                    <% } else { %>
+                        <img src="../public/images/i2.jpg" alt="Default Image">
+                    <% } %>
+                    <div class="card-super-content">
+                        <div class="card-paragraph">
+                            <p><%= post.paragraph %></p>
+                        </div>
+                        <div class="card-footer">
+                            <div>
+                                <h3><%= post.username %></h3>
+                                <p class="email"><%= post.email %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+            
+        
+    </div>    
+    <script src="../public/javascript/postblog.js"></script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("postFormDialog");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("createPostBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
