@@ -38,7 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const user = JSON.parse(localStorage.getItem('user'));
   const authContainer = document.getElementById('auth-container');
 
+  // Check if user is logged in
   if (user && user.email) {
+    // Fetch user profile data
     fetch(`/profile/json/${encodeURIComponent(user.email)}`)
       .then(response => {
         if (!response.ok) {
@@ -49,41 +51,46 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(profile => {
         console.log('Profile data fetched:', profile); // Debugging log
 
-        const userImage = profile.userphoto ? profile.userphoto : 'images/i2.jpg';
-        authContainer.innerHTML = `
-          <div class="dropdown">
-            <img src="${userImage}" alt="User Image" class="user-image" id="user-image" />
-            <div class="dropdown-content">
-              <a href="/profile/${encodeURIComponent(user.email)}">Profile</a>
-              <a href="#" id="logout-link">Logout</a>
-            </div>
-          </div>
-        `;
-
-        const dropdownContent = document.querySelector('.dropdown-content');
-
-        document.getElementById('user-image').addEventListener('click', function () {
-          dropdownContent.classList.toggle('show');
-        });
-
-        document.getElementById('logout-link').addEventListener('click', function () {
-          logout();
-        });
+        // Check if profile has user photo
+        const userImage = profile.userphoto || 'images/i2.jpg'; // Use profile photo or default image
+        displayUserDropdown(userImage, user.email);
       })
       .catch(error => {
         console.error('Error fetching profile:', error);
-        authContainer.innerHTML = `<button class="btn" id="signin-button" type="button">Sign In</button>`;
-        document.getElementById('signin-button').addEventListener('click', () => {
-          window.location.href = 'login.html';
-        });
+        // User exists but profile not fetched, show default image
+        displayUserDropdown('images/i2.jpg', user.email);
       });
   } else {
+    // User is not logged in, show sign-in button
     authContainer.innerHTML = `<button class="btn" id="signin-button" type="button">Sign In</button>`;
     document.getElementById('signin-button').addEventListener('click', () => {
       window.location.href = 'login.html';
     });
   }
 });
+
+function displayUserDropdown(userImage, email) {
+  const authContainer = document.getElementById('auth-container');
+  authContainer.innerHTML = `
+    <div class="dropdown">
+      <img src="${userImage}" alt="User Image" class="user-image" id="user-image" />
+      <div class="dropdown-content">
+        <a href="/profile/${encodeURIComponent(email)}">Profile</a>
+        <a href="#" id="logout-link">Logout</a>
+      </div>
+    </div>
+  `;
+
+  const dropdownContent = document.querySelector('.dropdown-content');
+
+  document.getElementById('user-image').addEventListener('click', function () {
+    dropdownContent.classList.toggle('show');
+  });
+
+  document.getElementById('logout-link').addEventListener('click', function () {
+    logout();
+  });
+}
 
 function logout() {
   // Clear user data from local storage
