@@ -1,0 +1,72 @@
+@import url(header.css);
+@import url(footer.css);
+
+
+.contact-form {
+    max-width: 1200px; /* Adjust width as needed */
+    margin: 0 auto 0 0; /* Align to the left */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .input-field {
+    margin-bottom: 20px;
+  }
+  
+  .input-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .input-field input[type="text"],
+  .input-field input[type="email"],
+  .input-field textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .input-field input[readonly],
+  .input-field textarea[readonly] {
+    background-color: #e9ecef;
+  }
+  
+  .input-field textarea {
+    resize: vertical;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.8rem;
+    height: 15px;
+    visibility: hidden;
+  }
+  
+ .contact-section button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

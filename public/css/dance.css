@@ -1,0 +1,94 @@
+@import url(header.css);
+@import url(footer.css);
+.container {
+    padding: 20px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    background-color: var(--bg2);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+    width: calc(33.33% - 40px); /* Three cards per row */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    /* overflow: hidden;  */
+    /* Prevent content overflow */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.card .name {
+    display: flex;
+    font-size: clamp(24px, 4vw, 42px); /* Responsive font size */
+    text-shadow: 15px 25px 0px var(--orange); /* Shadow effect */
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflowed text */
+    text-overflow: ellipsis; /* Display ellipsis when text overflows */
+}
+
+.card .name span {
+    font-family: "Dancing Script", cursive; /* Apply Dancing Script font */
+    font-weight: bolder;
+}
+
+/* Ensure Bootstrap card class does not affect the custom card */
+.card {
+    position: relative; /* Override Bootstrap card */
+}
+
+.dialog {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.dialog-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.dialog-details {
+    display: flex;
+}
+
+#dialog-image {
+    max-width: 150px;
+    margin-right: 20px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

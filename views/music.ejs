@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music & Dance Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/music.css">
+</head>
+<body class="music-page">
+    <div id="header-container"></div>
+
+    <div id="music-header" class="heading">
+        <h1 class="text-center">Indian Traditional Music List</h1>
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i> <!-- Font Awesome Search Icon -->
+            <input type="text" id="search-bar" placeholder="Search music by name..." oninput="searchMusic()">
+        </div>
+    </div>
+
+    <div class="music-container" id="music-container">
+        <% if (musicList.length > 0) { %>
+        <% musicList.forEach(music => { %>
+            <div class="music-card" onclick="openDialog('<%= music.name %>', Region='<%= music.region %>','<%= music.description %>', '<%= music.imageUrl %>')">
+                <div class="card-image" style="background-image: url('<%= music.imageUrl %>');"></div>
+                <div class="card-title"><%= music.name %></div>
+            </div>
+        <% }); %>
+        <% } else { %>
+            <p>No music found.</p>
+        <% } %>
+    </div>
+
+    <!-- Dialog Box -->
+    <div id="musicDialog" class="dialog">
+        <div class="dialog-content">
+            <span class="close" onclick="closeDialog()">&times;</span>
+            <div class="dialog-image" id="dialogImage"></div>
+            <div class="dialog-text">
+                <h2 id="dialogTitle"></h2>
+                <h2 id="dialogRegion"></h2>
+                <p id="dialogDescription"></p>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="heading">
+        <h1 class="text-center">Indian Traditional Dance List</h1>
+        <a href="/dance"><button>Dance List</button></a>
+    </div>
+    <!--footer-->
+    <div id="footer-container"></div>
+
+    <script src="/javascript/music.js"></script>
+    <script src="/javascript/header.js"></script>
+    <script src="/javascript/footer.js"></script>
+</body>
+</html>

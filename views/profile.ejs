@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="profile-title">Profile of <%= username %></h1>
+        <div class="profile-info">
+            <img src="<%= userphoto %>" alt="Profile Photo" class="profile-photo">
+            <div class="info-details">
+                <p><strong>Email:</strong> <%= email %></p>
+                <p><strong>Location:</strong> <%= location %></p>
+                <p><strong>Interests:</strong> <%= interests %></p>
+            </div>
+        </div>
+        <button id="editProfileBtn" class="edit-button">Edit Profile</button>
+
+        <!-- Dialog box for editing profile -->
+        <div id="editProfileDialog" class="dialog" style="display:none;">
+            <form action="/profile/<%= email %>/edit" method="POST" enctype="multipart/form-data">
+                <div class="dialog-header">
+                    <h2>Edit Profile</h2>
+                    <button type="button" class="close-btn" onclick="closeDialog()">X</button>
+                </div>
+                <label for="location">Location:</label>
+                <input type="text" name="location" value="<%= location %>" >
+                
+                <label for="interests">Interests:</label>
+                <input type="text" name="interests" value="<%= interests %>">
+                
+                <label for="userphoto">Profile Photo:</label>
+                <input type="file" name="userphoto">
+                
+                <button type="submit" class="save-button">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('editProfileBtn').addEventListener('click', function() {
+            document.getElementById('editProfileDialog').style.display = 'block';
+        });
+
+        function closeDialog() {
+            document.getElementById('editProfileDialog').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

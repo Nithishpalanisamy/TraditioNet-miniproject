@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Sites</title>
+    <link rel="stylesheet" href="/css/heritage.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet"/>
+    
+</head>
+<body>
+    <div id="header-container"></div>
+
+<div class="container">
+    <div id="music-header" class="heading">
+        <h1 class="text-center">Indian Traditional Music List</h1>
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i> <!-- Font Awesome Search Icon -->
+            <input type="text" id="search-bar" placeholder="Search music by name..." oninput="searchHeritage()">
+        </div>
+    </div>
+    <div class="card-container">
+        <!-- Heritage cards will be dynamically inserted here -->
+        <% heritageSites.forEach(site => { %>
+            <div class="card" onclick="openDialog('<%= site.siteName %>', '<%= site.location %>', '<%= site.typeOfHeritage %>', '<%= site.historicalSignificance %>', '<%= site.architecturalStyle %>', '<%= site.condition %>', '<%= site.ownership %>', '<%= site.conservationEfforts %>', '<%= site.threats %>', '<%= site.communityInvolvement %>')">
+                <span><h2 class="name text"><%= site.siteName %></h2></span>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<!-- Dialog box -->
+<div id="dialog" class="dialog">
+    <div class="dialog-content">
+        <span class="close" onclick="closeDialog()">&times;</span>
+        <div class="dialog-details">
+            <div id="dialog-info">
+                <h2 id="dialog-siteName"></h2>
+                <p><strong>Location:</strong> <span id="dialog-location"></span></p>
+                <p><strong>Type of Heritage:</strong> <span id="dialog-typeOfHeritage"></span></p>
+                <p><strong>Historical Significance:</strong> <span id="dialog-historicalSignificance"></span></p>
+                <p><strong>Architectural Style:</strong> <span id="dialog-architecturalStyle"></span></p>
+                <p><strong>Condition:</strong> <span id="dialog-condition"></span></p>
+                <p><strong>Ownership:</strong> <span id="dialog-ownership"></span></p>
+                <p><strong>Conservation Efforts:</strong> <span id="dialog-conservationEfforts"></span></p>
+                <p><strong>Threats:</strong> <span id="dialog-threats"></span></p>
+                <p><strong>Community Involvement:</strong> <span id="dialog-communityInvolvement"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="/music"><button>Back</button></a>
+ <!--footer-->
+ <div id="footer-container"></div>
+<script src="/javascript/header.js"></script>
+<script src="/javascript/heritage.js"></script>
+<script src="/javascript/footer.js"></script>
+
+</body>
+</html>

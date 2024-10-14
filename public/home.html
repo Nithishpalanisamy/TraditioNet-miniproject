@@ -17,6 +17,7 @@
       <link rel="stylesheet" href="css/responsive.css">
       <!-- awesome fontfamily -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
    </head>
    <!-- body -->
    <body class="main-layout">
@@ -26,52 +27,7 @@
       </div>
       <!-- end loader -->
      <!-- header -->
-<header>
-   <div class="header">
-       <div class="container-fluid">
-           <div class="row d_flex">
-               <div class="col-md-2 col-sm-3 col logo_section">
-                   <div class="full">
-                       <div class="center-desk">
-                           <div class="logo">
-                               <h2 style="color: aliceblue;">TraditioNet</h2>
-                               <!-- <a href="index.html"><img src="images/TraditioNet logo.jpg" alt="logo" id="logo"></a> -->
-                           </div>
-                       </div>
-                   </div>
-               </div>
-               <div class="col-md-8 col-sm-9">
-                   <nav class="navigation navbar navbar-expand-md navbar-dark">
-                       <div class="collapse navbar-collapse" id="navbarsExample04">
-                           <ul class="navbar-nav mr-auto">
-                               <li class="nav-item active">
-                                   <a class="nav-link" href="home.html">Home</a>
-                               </li>
-                               <li class="nav-item">
-                                   <a class="nav-link" href="explore.html">Heritage Sites</a>
-                               </li>
-                               <li class="nav-item">
-                                   <a class="nav-link" href="maps.html">Maps</a>
-                               </li>
-                               <li class="nav-item">
-                                   <a class="nav-link" href="interact.html">Interactive Q/A </a>
-                               </li>
-                               <li class="nav-item">
-                                   <a class="nav-link" href="about.html">About Us</a>
-                               </li>
-                               <li class="nav-item">
-                                   <a class="nav-link" href="contact.html">Contact Us</a>
-                               </li>
-                           </ul>
-                       </div>
-                   </nav>
-               </div>
-               <!-- Profile Menu Item outside of the collapsible menu -->
-               <button class="btn logout-btn" id="auth-button" type="button">logout</button>
-           </div>
-       </div>
-   </div>
-</header>
+     <div id="header-container"></div>
 <!--end header-->
       <!-- start slider section -->
        <div class="slider-section">
@@ -98,7 +54,7 @@
                                  <div class="bluid">
                                     <h1>Discover <br>India's Heritage</h1>
                                     <p>Unveil the beauty of India's rich cultural tapestry and explore the timeless traditions that have shaped <br>its history.</p>
-                                    <a class="read_more" href="heritage.html">View Hertiages Sites </a>
+                                    <a class="read_more" href="explore.html">View Hertiages Sites </a>
                                  </div>
                               </div>
                            </div>
@@ -109,7 +65,7 @@
                                  <div class="bluid">
                                     <h1>Engage <br>with India's Legacy</h1>
                                     <p>Connect with the vibrant traditions and diverse cultures of India, and dive into a world of history and<br>heritage through interactive exploration.</p>
-                                    <a class="read_more" href="interact.html">Engage </a> 
+                                    <a class="read_more" href="/blogpost">Engage </a> 
                                  </div>
                               </div>
                            </div>
@@ -120,7 +76,7 @@
                                  <div class="bluid">
                                     <h1>Mapping <br> Treasures</h1>
                                     <p>Navigate through India's historic landmarks and heritage sites, uncovering stories that span centuries <br>and civilizations.</p>
-                                    <a class="read_more" href="Maps.html">Maps </a>
+                                    <a class="read_more" href="maps.html">Maps </a>
                                  </div>
                               </div>
                            </div>
@@ -211,7 +167,7 @@
                   </div>
                </div>
                <div class="col-md-12">
-                  <a class="read_more" href="heritage.html">See More</a>
+                  <a class="read_more" href="explore.html">See More</a>
                </div>
             </div>
          </div>
@@ -222,20 +178,24 @@
       <section id="explore-india">
          <center><h1> Locate top heritage sites in India!</h1></center> 
          <br><br>
-         <center><p><h4>This map depicts the top ten historical sites in India in terms of their geographical location.<br> Click on any pointer to learn more about the place and to appreciate the diversity!</h4></p></center>
-       <br><br><center> <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1rWVL7-ObutJZd9PlLtzqS4kounhEzHg&ehbc=2E312F" width="60%" height="480"></iframe></center>
+         <center><p><h4>This map depicts the historical sites in India in terms of their geographical location.<br> Click on any pointer to learn more about the place and to appreciate the diversity!</h4></p></center>
+       <br><br><center> <iframe id="embeddedMap1" src="https://www.google.com/maps/d/u/0/embed?mid=18s3ukjbDqLp_6ZTjCItuWs_9msYTsuk&ehbc=2E312F" width="60%" height="480"></iframe></center>
+      <center><br>
+      <div class="col-md-12">
+         <a class="read_more" href="maps.html">See More</a>
+      </div>
+      </center>
       </section>
       
       <!--galery-->
       <section id="gallery">
          <div class="container">
              <div class="row">
-                 <div class="filterbuttons">
-                     <button class="btn filter-button active" data-filter="all">All</button>
-                     <button class="btn filter-button" data-filter="hdpe">Foods and Culture</button>
-                     <button class="btn filter-button" data-filter="sprinkle">Heritage Sites</button>
-                     <button class="btn filter-button" data-filter="spray">Paradise</button>
+                 <center>
+                  <div class="filterbuttons">
+                     <button class="btn filter-button active" data-filter="all">Gallery</button>
                  </div>
+               </center>
  
                  <div class="filter-gal-par">
                      <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
@@ -291,54 +251,18 @@
      </section>
      <!--end galery-->
      <!--footer-->
-     
-<footer class="footer bg-dark text-white pt-4">
-   <div class="container">
-       <div class="row">
-           <div class="col-md-4">
-               <br>
-               <p>Developed By Nithish & Muthu Raja<br>MCA Department,PSG Tech</p>
-               <div class="social-icons">
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
-                  <a href="#"><i class="fa fa-envelope"></i></a>
-                  <a href="#"><i class="fa fa-instagram"></i></a>
-               </div>
-           </div>
-           <div class="col-md-4">
-               <h5>Pages</h5>
-               <ul class="list-unstyled">
-                       <li><a href="home.html">Home</a></li>
-                       <li><a href="explore.html">Heritage sites</a></li>
-                       <li><a href="interact.html">Engage</a></li>
-                       <li><a href="Maps.html">Maps</a></li>
-                       <li><a href="contact.html">Contact us</a></li>
-                       <li><a href="about.html">About us</a></li>
-               </ul>
-           </div>
-           <div class="col-md-4">
-               <h5>Important Links</h5>
-               <ul class="list-unstyled">
-                       <li><a href="https://indianculture.gov.in/">Indian Culture</a></li>
-                       <li><a href="https://www.incredibleindia.org/content/incredible-india-v2/en.html">Incredible!ndia</a></li>
-                       <li><a href="http://www.indiaculture.nic.in/hi">Ministry of Culture</a></li>
-                       <li><a href="https://swachhbharatmission.gov.in/SBMCMS/index.htm">Swachh Bharat</a></li>
-               </ul>
-           </div>
-       </div>
-       <div class="text-center mt-3">
-           <hr class="bg-white">
-           <p>Copyright © 2024 All right reserved</p>
-       </div>
-   </div>
-</footer>
+     <div id="footer-container"></div>
 
      <!-- end footer -->
      <!-- Javascript files-->
-
+     <script src="javascript/header.js"></script>
      <script src="javascript/jquery.min.js"></script>
      <script src="javascript/bootstrap.bundle.min.js"></script>
      <script src="javascript/jquery-3.0.0.min.js"></script>
      <script src="javascript/custom.js"></script>
+     <script src="javascript/user.js"></script>
+     
+     <script src="javascript/footer.js"></script>
+   <!-- <script src="javascript/navbar.js"></script> -->
   </body>
 </html>

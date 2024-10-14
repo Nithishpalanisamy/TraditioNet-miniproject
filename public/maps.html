@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+    rel="stylesheet" />
+    <link rel="stylesheet" href="css/maps.css">
+    <title>Explore</title>
+</head>
+<body>
+    
+    <div id="header-container"></div>
+<main class="map-section">
+    <div class="map-heading">
+        <h1 class="map-title">Explore Heritage Sites</h1>
+        <!-- Dropdown for selecting Indian states -->
+        <div class="dropdownContainer">
+            <select class="stateDropdown" id="stateDropdown1" onchange="updateMapHeritage()">
+                <option value="none">Select a state</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+            </select>
+        </div>
+    </div>
+    
+    <section id="heritage">
+            <center><p><h4>This Maps Shows Indian heritage sites that are recognized by UNESCO<br> Click on any pointer to learn more about the place and to appreciate the diversity!</h4></p></center>
+            <br><br><center><iframe id="embeddedMap1" src="https://www.google.com/maps/d/u/0/embed?mid=18s3ukjbDqLp_6ZTjCItuWs_9msYTsuk&ehbc=2E312F" width="60%" height="480"></iframe></center>
+    </section>
+
+
+    <!--forts-->
+    <div class="map-heading">
+        <h1 class="map-title">Explore Forts</h1>
+        <!-- Dropdown for selecting Indian states -->
+        <div class="dropdownContainer">
+            <select class="stateDropdown" id="stateDropdown2" onchange="updateMapFort()">
+                <option value="none">Select a state</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+            </select>
+        </div>
+    </div>
+<section id="fort">
+        <center><p><h4>This Maps Shows Marvelous Indian Forts<br> Click on any pointer to learn more about the place and to appreciate the diversity!</h4></p></center>
+        <br><br><center><iframe id="embeddedMap2" src="https://www.google.com/maps/d/u/0/embed?mid=1apex8Bj1IZQxgsCuk44-KKoEWaniOG4&ehbc=2E312F" width="60%" height="480"></iframe></center>
+</section>
+<div class="content">
+    <div class="column text-column">
+        TraditioNet is an innovative platform dedicated to showcasing the rich tapestry of Indian culture and heritage through an interactive map palaces. By providing detailed insights and vibrant narratives, we aim to foster a deeper appreciation for India's diverse traditions, inviting users to explore, learn, and engage with the country's historical landmarks.
+    </div>
+    <div class="column image-column">
+        <img src="images/TraditioNet logo.jpg" alt="TraditioNet Logo"/>
+    </div>
+</div>
+<div class="map-heading" id="temple_place">
+        <h1 class="map-title">Explore Ancient Temples</h1>
+        <!-- Dropdown for selecting Indian states -->
+        <div class="dropdownContainer">
+            <select class="stateDropdown" id="stateDropdown3" onchange="updateMapTemple()">
+                <option value="none">Select a state</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+            </select>
+        </div>
+    </div>
+    
+    <section id="temple">
+            <center><p><h4>This Maps Shows Ancient Indian Temples & Religious Places<br> Click on any pointer to learn more about the place and to appreciate the diversity!</h4></p></center>
+            <br><br><center><iframe id="embeddedMap3" src="https://www.google.com/maps/d/u/0/embed?mid=1hEI1IolILetV2VBCBRhQF4Lg-DS8zJw&ehbc=2E312F" width="60%" height="480"></iframe></center>
+    </section>
+
+    <div class="map-heading">
+        <h1 class="map-title">Explore Museums & Cultural Institutions</h1>
+        <!-- Dropdown for selecting Indian states -->
+        <div class="dropdownContainer">
+            <select class="stateDropdown" id="stateDropdown4" onchange="updateMapMuseum()">
+                <option value="none">Select a state</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+            </select>
+        </div>
+    </div>
+    
+    <section id="museum">
+            <center><p><h4>This Maps Shows Museums and Cultural Institutions of India<br> Click on any pointer to learn more about the place and to appreciate the diversity!</h4></p></center>
+            <br><br><center><iframe id="embeddedMap4" src="https://www.google.com/maps/d/u/0/embed?mid=19r_Ilap0ZqFY0NKJtFlHAaBzmqE1y3M&ehbc=2E312F" width="60%" height="480"></iframe></center>
+    </section>
+
+    <div class="map-heading">
+        <h1 class="map-title">Explore Archaeological Sites & Ruins</h1>
+        <!-- Dropdown for selecting Indian states -->
+        <div class="dropdownContainer">
+            <select class="stateDropdown" id="stateDropdown5" onchange="updateMapArchaeological()">
+                <option value="none">Select a state</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+            </select>
+        </div>
+    </div>
+    
+    <section id="Archaeological">
+            <center><p><h4>This Maps Shows Archaeological Sites & Ruins of India<br> Click on any pointer to learn more about the place and to appreciate the diversity!</h4></p></center>
+            <br><br><center><iframe id="embeddedMap5" src="https://www.google.com/maps/d/u/0/embed?mid=19UKb7LPGxK7TaHGXu9VaOhGSaCdo8hI&ehbc=2E312F"  width="60%" height="480"></iframe></center>
+    </section>
+</main>
+
+<!--footer-->
+<div id="footer-container"></div>
+
+<script src="javascript/maps.js"></script>
+<script src="javascript/user.js"></script>
+<script src="javascript/header.js"></script>
+<script src="javascript/footer.js"></script>
+</body>
+</html>

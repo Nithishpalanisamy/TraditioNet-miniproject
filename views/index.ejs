@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quora Clone Home</title>
-    <link rel="stylesheet" href="../public/css/postblog.css">
+    <title>TraditioNet-Blogs</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/postblog.css">
 </head>
 <body>
-    <h1>Welcome to My Quora Clone</h1>
-    <button id="createPostBtn">Create a Post</button>
-    <button onclick="location.href='/list'">View Posts</button>
+    <div id="header-container"></div>
+
+    <div class="header-container">
+        <h1>POST Your Thoughts on Indian Traditions</h1>
+        <button id="createPostBtn">Create a Post</button>
+    </div>
 
     <!-- Post Form Dialog -->
     <div id="postFormDialog" class="modal">
@@ -18,10 +23,9 @@
             <h2>Create a Post</h2>
             <form id="postForm" action="/post" method="POST" enctype="multipart/form-data">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-z
+                <input type="text" id="username" name="username" required readonly>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required readonly>
 
                 <label for="photo">Photo:</label>
                 <input type="file" id="photo" name="photo">
@@ -55,6 +59,8 @@ z
                             <div>
                                 <h3><%= post.username %></h3>
                                 <p class="email"><%= post.email %></p>
+                              <!-- Report Button -->
+                                <button class="report-button" data-post-id="<%= post._id %>">Report</button>
                             </div>
                         </div>
                     </div>
@@ -63,34 +69,21 @@ z
         </div>
             
         
-    </div>    
-    <script src="../public/javascript/postblog.js"></script>
+    </div>   
+    <!--footer-->
+    <div id="footer-container"></div>
+
+
+    <script src="javascript/postblog.js"></script>
+    <script src="javascript/header.js"></script>
+    <script src="javascript/footer.js"></script>
     <script>
-        // Get the modal
-        var modal = document.getElementById("postFormDialog");
-
-        // Get the button that opens the modal
-        var btn = document.getElementById("createPostBtn");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks the button, open the modal 
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
+        const username = localStorage.getItem('username');
+        const email = localStorage.getItem('email');
+        
+        // Set the values of the input fields and make them read-only
+        document.getElementById('username').value = username;
+        document.getElementById('email').value = email;
     </script>
 </body>
 </html>

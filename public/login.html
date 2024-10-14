@@ -23,14 +23,13 @@
                     <input type="password" name="password" placeholder="Enter your Password" class="password" required />
                     <i class='bx bx-hide hide-show'></i>
                 </div>
-
-                <div class="forg">
-                    <a href="#" class="forget">Forget password?</a>
-                </div>
-
                 <div class="field btn">
                     <button type="submit">Login</button>
                 </div>
+<!-- 
+                <div class="forg">
+                    <a href="#" class="forget">Forget password?</a>
+                </div> -->
 
                 <div class="link sign-login">
                     <span>Don't have an Account!</span>
@@ -40,10 +39,10 @@
                 <div class="line"></div>
                 <!-- Other Login Options -->
 
-                <div class="thirdLogin field facebook">
+                <!-- <div class="thirdLogin field facebook">
                     <i class='bx bxl-facebook-circle face-icon'></i>
                     <span>Login with Facebook</span>
-                </div>
+                </div> -->
                 
                 <div class="thirdLogin field google">
                     <i class='bx bxl-google face-icon'></i>
@@ -53,14 +52,6 @@
         </div>
     </section>
 
-    <script>
-        function handleLogin(event) {
-            event.preventDefault();
-            // Simulate login by setting localStorage
-            localStorage.setItem('isLoggedIn', true);
-            // Redirect to home page after login
-            window.location.href = 'home.html';
-        }
-    </script>
+    <script src="javascript/login.js"></script>
 </body>
 </html>

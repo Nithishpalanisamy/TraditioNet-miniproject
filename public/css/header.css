@@ -1,30 +1,144 @@
+/* Navbar Custom Styles */
 .navbar-custom {
-  background-color: #004ba0;
-  min-height: 80px; /* Blue background color */
+  background-color: #004ba0; /* Blue background color */
+  min-height: 80px;
 }
+/* Navbar Custom Styles */
+.navbar-custom {
+  background-color: #004ba0; /* Blue background color */
+  min-height: 80px;
+}
+
 .navbar-custom .navbar-brand,
 .navbar-custom .nav-link {
-  color: white;
-  padding-left: 30pt; /* White text color */
+  color: white; /* White text color */
+  padding-left: 30pt;
 }
+
 .navbar-custom .nav-link:hover {
   color: #d0e98b;
-  background-color:#3b7dc8;
+  background-color: #3b7dc8; /* Light grey on hover */
   border-radius: 25px;
-   /* Light grey on hover */
 }
+
 .navbar-custom .nav-link {
   margin: 0 15px; /* Add horizontal space between links */
 }
-.logout-btn {
-  border: 1px solid #004ba0;
-  color: #004ba0;
-  background-color: white;
-  border-radius: 20px;
-  padding: 5px 15px;
-  margin-right: 20pt;
+
+/* User Image Styles */
+.user-image {
+  width: 60px; /* Adjust the width as needed */
+  height: 60px; /* Adjust the height as needed */
+  border-radius: 50%; /* Make it a circle */
+  border: 3px solid #fff; /* White border */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a nice effect */
+  transition: transform 0.3s ease; /* Smooth transform transition */
+  margin: 10px;
+  cursor: pointer; /* Change cursor to pointer */
 }
-.logout-btn:hover {
-  background-color: #3b7dc8;
-  color: white;
+
+.user-image:hover {
+  transform: scale(1.05); /* Slightly enlarge the image on hover */
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure the dropdown is on top */
+  right: 0; /* Align the dropdown to the right */
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+  color: white; /* White text color */
+  padding-left: 30pt;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #d0e98b;
+  background-color: #3b7dc8; /* Light grey on hover */
+  border-radius: 25px;
+}
+
+.navbar-custom .nav-link {
+  margin: 0 15px; /* Add horizontal space between links */
+}
+
+/* User Button and Image Styles */
+.user-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.user-image {
+  width: 60px; /* Adjust the width as needed */
+  height: 60px; /* Adjust the height as needed */
+  border-radius: 50%; /* Make it a circle */
+  border: 3px solid #fff; /* White border */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a nice effect */
+  transition: transform 0.3s ease; /* Smooth transform transition */
+  margin: 10px;
+}
+
+.user-image:hover {
+  transform: scale(1.05); /* Slightly enlarge the image on hover */
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  right: 0; /* Align the dropdown to the right */
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-content.show {
+  display: block;
 }

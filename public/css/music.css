@@ -1,0 +1,141 @@
+@import url(header.css);
+@import url(footer.css);
+
+
+#music-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center align vertically */
+    margin: 20px; /* Add margin for spacing */
+}
+
+#music-header h1 {
+    flex: 1; /* Allow the heading to take available space */
+    text-align: center; /* Center the text */
+    margin: 0; /* Remove default margin */
+    color: black; /* Heading color */
+}
+
+#music-header .search-container {
+    display: flex;
+    align-items: center;
+    position: relative; /* For icon positioning */
+}
+
+#music-header input[type="text"] {
+    width: 250px; /* Adjust width as needed */
+    padding: 10px 40px; /* Padding for text and icon */
+    margin-bottom: 20px; /* Space below the search input */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 20px; /* Rounded corners */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+    font-size: 16px; /* Font size for input */
+}
+
+#music-header input[type="text"]:focus {
+    border-color: #6a5acd; /* Change border color on focus */
+    box-shadow: 0 0 10px rgba(106, 90, 205, 0.5); /* Add shadow on focus */
+}
+
+#music-header .search-icon {
+    position: absolute; /* Position icon relative to input */
+    right: 15px; /* Space from left edge */
+    top: 40%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust position */
+    color: #004ba0; /* Icon color */
+}
+
+body.music-page {
+    font-family: Arial, sans-serif;
+    background: url('your-background-image-url.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+.music-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+
+.music-card {
+    width: 22%; /* 4 cards per row */
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.music-card:hover {
+    transform: scale(1.05);
+}
+
+.card-image {
+    height: 150px;
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-title {
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.dialog {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+}
+
+.dialog-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    display: flex;
+    border-radius: 10px;
+}
+
+.dialog-image {
+    width: 40%;
+    height: auto;
+    background-size: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.dialog-text {
+    color: black;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.text-center
+{
+    margin-top: 20px;
+    color: black;
+}
+
+input[type="text"] {
+    width: 50%; /* Adjust width as needed */
+    margin-bottom: 20px; /* Space below the search input */
+}
+
