@@ -53,7 +53,8 @@
                             <p class="email"><%= post.email %></p>
                         </div>
                     </div>
-                    <button class="report-button" data-post-id="<%= post._id %>">Report</button>
+                    <!-- Inside your post rendering loop -->
+                    <button class="report-button" data-post-id="<%= post._id %>" onclick="reportPost('<%= post._id %>')">Report</button>
                 </div>
                 <div class="card-bottom">
                     <div class="post-image-container">

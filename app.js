@@ -22,6 +22,7 @@ const danceRoutes = require('./routes/danceRoutes');
 const heritageRoutes = require('./routes/heritageRoutes');
 const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profileRoutes');
+const adminRoutes = require('./routes/admin');
 
 dotenv.config();
 
@@ -88,6 +89,8 @@ app.use('/heritage', heritageRoutes); // Mount the heritage routes at /heritage
 
 // Use the profile routes
 app.use('/profile', profileRoutes);
+
+app.use('/admin',adminRoutes);
 
 // Route to handle blog form submission
 app.post('/submit', uploadBlog.single('image'), (req, res) => {

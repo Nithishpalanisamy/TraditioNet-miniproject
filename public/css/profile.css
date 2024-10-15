@@ -1,56 +1,58 @@
 @import url(header.css);
 @import url(footer.css);
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Stack header, container, and footer vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+#header-container {
+    width: 100%; /* Full width for header */
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex: 1; /* Take up the remaining space between header and footer */
     padding: 20px;
 }
 
-.profile-title {
-    text-align: center;
-    color: #4a4a4a;
+.profile-container {
+    width: 600px; /* Set the width of the profile box */
+    margin-right: 35px; /* Add some space between profile and posts */
 }
 
 .profile-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+    background-color: #f4f4f4; /* Box background color */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    position: sticky; /* Keep it fixed during scroll */
+    top: 20px; /* Distance from the top of the viewport */
 }
 
 .profile-photo {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    margin-right: 20px;
-    border: 3px solid #007bff;
+    width: 200px; /* Increased size */
+    height: 200px; /* Increased size */
+    border-radius: 15%; /* Circular profile photo */
+    margin-bottom: 20px;
 }
 
-.info-details {
-    line-height: 1.5;
+.info-details p {
+    margin: 10px 0;
 }
 
 .edit-button {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 20px;
+    margin-top: 20px;
+    padding: 10px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
 }
 
 .edit-button:hover {
@@ -59,21 +61,13 @@ body {
 
 .dialog {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-
-.dialog form {
-    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
     padding: 20px;
-    border-radius: 8px;
-    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 .dialog-header {
@@ -83,35 +77,71 @@ body {
 }
 
 .close-btn {
-    background: transparent;
+    background: none;
     border: none;
     font-size: 20px;
     cursor: pointer;
 }
 
-label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-input[type="text"], input[type="file"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
 .save-button {
-    padding: 10px 15px;
+    margin-top: 20px;
+    padding: 10px;
     background-color: #28a745;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
 }
 
 .save-button:hover {
     background-color: #218838;
+}
+
+.main-content {
+    flex-grow: 1; /* Takes the remaining space */
+    padding: 20px;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align posts */
+}
+
+.post-card {
+    display: flex;
+    width: 80%;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.post-photo {
+    width: 30%;
+    margin-right: 20px;
+}
+
+.post-photo img {
+    width: 100%;
+    height: auto;
+}
+
+.post-details {
+    width: 70%;
+}
+
+.post-footer {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.posts-title {
+    color: #3c8fe9;
+    text-align: center; /* Center align title */
+}
+
+#footer-container {
+    width: 100%; /* Full width for footer */
 }

@@ -25,29 +25,29 @@ window.onclick = function(event) {
 }
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const reportButtons = document.querySelectorAll('.report-button');
+// document.addEventListener('DOMContentLoaded', function() {
+//     const reportButtons = document.querySelectorAll('.report-button');
 
-    reportButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const postId = this.getAttribute('data-post-id');
+//     reportButtons.forEach(button => {
+//         button.addEventListener('click', function() {
+//             const postId = this.getAttribute('data-post-id');
 
-            if (confirm('Are you sure you want to report this post?')) {
-                fetch(`/report/${postId}`, {
-                    method: 'POST'
-                })
-                .then(response => {
-                    if (response.ok) {
-                        alert('Post reported successfully.');
-                        location.reload(); // Reload the page to see changes
-                    } else {
-                        alert('Error reporting post.');
-                    }
-                });
-            }
-        });
-    });
-});
+//             if (confirm('Are you sure you want to report this post?')) {
+//                 fetch(`/report/${postId}`, {
+//                     method: 'POST'
+//                 })
+//                 .then(response => {
+//                     if (response.ok) {
+//                         alert('Post reported successfully.');
+//                         location.reload(); 
+//                     } else {
+//                         alert('Error reporting post.');
+//                     }
+//                 });
+//             }
+//         });
+//     });
+// });
 
     // Fetch username and email from localStorage when the modal opens
     document.getElementById('createPostBtn').addEventListener('click', function() {
@@ -87,3 +87,28 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.style.display = 'none';
         }
     });
+
+    function reportPost(postId) {
+        const reason = prompt("Please enter the reason for reporting this post:");
+        if (reason) {
+            fetch('/admin/report', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ postId, reason }),
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Post reported successfully.');
+                } else {
+                    alert('Failed to report post.');
+                }
+            })
+            .catch(error => {
+                console.error('Error reporting post:', error);
+            });
+        }
+    }
+
+    

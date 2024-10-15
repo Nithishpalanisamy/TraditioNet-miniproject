@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reported Posts</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Include your CSS -->
+</head>
+<body>
+    <h1>Reported Posts</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Post Topic</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Reason</th>
+                <th>Reported At</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% reports.forEach(report => { %>
+                <tr>
+                    <td><%= report.topic %></td>
+                    <td><%= report.username %></td>
+                    <td><%= report.email %></td>
+                    <td><%= report.reason %></td>
+                    <td><%= report.reportedAt.toLocaleString() %></td>
+                    <td>
+                        <form action="/admin/report/<%= report._id %>" method="POST" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <a href="/">Back to Home</a>
+</body>
+</html>

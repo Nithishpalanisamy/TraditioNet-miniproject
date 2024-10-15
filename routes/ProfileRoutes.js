@@ -4,6 +4,7 @@ const multer = require('multer');
 const path = require('path');
 const Profile = require('../models/Profile');
 const User = require('../models/User');
+const Post = require('../models/Post');
 
 // Configure Multer storage for profile photos
 const storage = multer.diskStorage({
@@ -54,16 +55,24 @@ const ensureProfileExists = async (req, res, next) => {
 };
 
 // Route to get the profile page
-router.get('/:useremail', ensureProfileExists, (req, res) => {
+router.get('/:useremail', ensureProfileExists, async (req, res) => {
     const { username, email, location, interests, userphoto } = req.profile;
 
-    res.render('profile', {
-        username,
-        email,
-        location,
-        interests,
-        userphoto
-    });
+    try {
+        const posts = await Post.find({ email });
+
+        res.render('profile', {
+            username,
+            email,
+            location,
+            interests,
+            userphoto,
+            posts // Pass the posts to the template
+        });
+    } catch (err) {
+        console.error('Error fetching posts:', err);
+        res.status(500).send('Server error');
+    }
 });
 
 // Route to handle profile edits
@@ -113,6 +122,30 @@ router.get('/json/:useremail', async (req, res) => {
         res.json(profile);
     } catch (err) {
         console.error('Error fetching profile:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// Route to get posts by user email
+router.get('/posts', async (req, res) => {
+    const email = req.query.email;
+    try {
+        const posts = await Post.find({ email });
+        res.json(posts);
+    } catch (err) {
+        console.error('Error fetching posts:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// Route to get posts by user email along with photos
+router.get('/posts-with-photos', async (req, res) => {
+    const email = req.query.email;
+    try {
+        const posts = await Post.find({ email }).select('topic paragraph photo');
+        res.json(posts);
+    } catch (err) {
+        console.error('Error fetching posts with photos:', err);
         res.status(500).json({ message: 'Server error' });
     }
 });

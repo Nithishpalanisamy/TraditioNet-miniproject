@@ -9,22 +9,22 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="home.html">Home</a>
+              <a class="nav-link" href="/home.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="explore.html">Heritage</a>
+              <a class="nav-link" href="/explore.html">Heritage</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/blogpost">Blogs</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="maps.html">Maps</a>
+              <a class="nav-link" href="/maps.html">Maps</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="/contact.html">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href="/about.html">About</a>
             </li>
           </ul>
         </div>

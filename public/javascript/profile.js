@@ -47,3 +47,17 @@ const previewImage = document.getElementById('image-preview-img');
 if (!previewImage.src || previewImage.src === window.location.href) {
     previewImage.src = '/images/photo.jpeg';
 }
+
+
+ // Show the edit profile dialog
+ document.getElementById('editProfileBtn').addEventListener('click', function() {
+    document.getElementById('editProfileDialog').style.display = 'block';
+});
+
+// Close the edit profile dialog
+function closeDialog() {
+    document.getElementById('editProfileDialog').style.display = 'none';
+}
+
+
+
