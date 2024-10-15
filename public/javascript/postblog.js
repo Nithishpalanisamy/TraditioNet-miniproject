@@ -48,3 +48,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+    // Fetch username and email from localStorage when the modal opens
+    document.getElementById('createPostBtn').addEventListener('click', function() {
+        // Get the user object from localStorage
+        const user = localStorage.getItem('user');
+
+        // Parse the user object to access email and username
+        let username = '';
+        let email = '';
+        if (user) {
+            const userData = JSON.parse(user); // Parse the JSON string
+            username = userData.username || ''; // Extract username or fallback to empty
+            email = userData.email || ''; // Extract email or fallback to empty
+        }
+
+        // Log to console for debugging
+        console.log('Username:', username);
+        console.log('Email:', email);
+
+        // Set the values in the input fields
+        document.getElementById('username').value = username;
+        document.getElementById('email').value = email;
+
+        // Display the modal
+        document.getElementById('postFormDialog').style.display = 'block';
+    });
+
+    // Close the modal when the close button is clicked
+    document.querySelector('.close').addEventListener('click', function() {
+        document.getElementById('postFormDialog').style.display = 'none';
+    });
+
+    // Optional: Close the modal if clicking outside of it
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById('postFormDialog');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    });

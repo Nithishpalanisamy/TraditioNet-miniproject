@@ -42,34 +42,38 @@
     </div>
 
     <div id="post-container">
-        <!-- This is where the list of posts will be rendered -->
-        <div id="post-container">
-            <% posts.forEach(post => { %>
-                <div class="card">
-                    <% if (post.photo) { %>
-                        <img src="<%= post.photo %>" alt="Post Image">
-                    <% } else { %>
-                        <img src="../public/images/i2.jpg" alt="Default Image">
-                    <% } %>
-                    <div class="card-super-content">
-                        <div class="card-paragraph">
-                            <p><%= post.paragraph %></p>
-                        </div>
-                        <div class="card-footer">
-                            <div>
-                                <h3><%= post.username %></h3>
-                                <p class="email"><%= post.email %></p>
-                              <!-- Report Button -->
-                                <button class="report-button" data-post-id="<%= post._id %>">Report</button>
-                            </div>
+        <% posts.forEach(post => { %>
+            <div class="card">
+                <div class="card-top">
+                    <div class="profile-info">
+                        <% const userProfile = profileMap[post.email]; %>
+                        <img src="<%= userProfile && userProfile.userphoto ? userProfile.userphoto : '/images/i2.jpg' %>" alt="Profile Image" class="profile-photo">
+                        <div class="user-details">
+                            <h3 class="username"><%= post.username %></h3>
+                            <p class="email"><%= post.email %></p>
                         </div>
                     </div>
+                    <button class="report-button" data-post-id="<%= post._id %>">Report</button>
                 </div>
-            <% }) %>
-        </div>
-            
-        
-    </div>   
+                <div class="card-bottom">
+                    <div class="post-image-container">
+                        <% if (post.photo) { %>
+                            <img src="<%= post.photo %>" alt="Post Image" class="post-image">
+                        <% } else { %>
+                            <img src="/images/i2.jpg" alt="Default Image" class="post-image">
+                        <% } %>
+                    </div>
+                    <div class="card-paragraph">
+                        <p><%= post.paragraph %></p>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    
+    
+    
+    
     <!--footer-->
     <div id="footer-container"></div>
 
@@ -77,13 +81,5 @@
     <script src="javascript/postblog.js"></script>
     <script src="javascript/header.js"></script>
     <script src="javascript/footer.js"></script>
-    <script>
-        const username = localStorage.getItem('username');
-        const email = localStorage.getItem('email');
-        
-        // Set the values of the input fields and make them read-only
-        document.getElementById('username').value = username;
-        document.getElementById('email').value = email;
-    </script>
 </body>
 </html>

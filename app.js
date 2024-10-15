@@ -121,14 +121,25 @@ app.get('/dance', async (req, res) => {
 });
 
 // Route to serve the blog posts page (index.ejs from the second project)
-app.get('/blogpost', (req, res) => {
-    Post.find().then(posts => {
-        res.render('index', { posts });
-    }).catch(err => {
+app.get('/blogpost', async (req, res) => {
+    try {
+        const posts = await Post.find();
+        const profiles = await Profile.find(); // Fetch all profiles
+
+        // Create a map of email to profile for quick access
+        const profileMap = {};
+        profiles.forEach(profile => {
+            profileMap[profile.email] = profile;
+        });
+
+        res.render('index', { posts, profileMap }); // Pass profiles to the template
+    } catch (err) {
         console.log(err);
         res.status(500).send('An error occurred while fetching posts.');
-    });
+    }
 });
+
+
 
 // Handle post submissions with file upload (second project)
 app.post('/post', uploadPost.single('photo'), (req, res) => {
