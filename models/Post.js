@@ -4,7 +4,7 @@ const postSchema = new mongoose.Schema({
     topic: String,
     username: String,
     email: String,
-    photo: String, // Will store the path to the uploaded image
+    photo: String, 
     paragraph: String
 });
 

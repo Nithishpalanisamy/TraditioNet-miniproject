@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribute Module</title>
+    <link rel="stylesheet" href="css/contribute.css"> <!-- Link to your CSS file -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="header-container"></div>
+    <h1>Contribute</h1>
+    <div class="container">
+        <!-- Card 1: Heritage -->
+        <div class="card">
+            <img src="images/hyderabad.jpeg" alt="Heritage Site" class="card-image">
+            <h3>Heritage Sites</h3>
+            <button id="heritage-contribute" onclick="openModal('heritage-dialog')">Contribute</button>
+        </div>
+    
+        <!-- Card 2: Music -->
+        <div class="card">
+            <img src="images/music-tradtionet.jpg" alt="Post Title 2" class="card-image">
+            <h3>Music</h3>
+            <button id="music-contribute" onclick="openModal('music-dialog')">Contribute</button>
+        </div>
+    
+        <!-- Card 3: Dance -->
+        <div class="card">
+            <img src="images/post_backgroud.jpg" alt="Post Title 3" class="card-image">
+            <h3>Dance</h3>
+            <button id="dance-contribute" onclick="openModal('dance-dialog')">Contribute</button>
+        </div>
+    </div>
+
+    <!-- Heritage Dialog -->
+    <div id="heritage-dialog" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contribute Heritage Information</h2>
+            <form id="heritage-form">
+                <p><strong>Location:</strong> <input type="text" id="dialog-location" required></p>
+                <p><strong>Type of Heritage:</strong> <input type="text" id="dialog-typeOfHeritage" required></p>
+                <p><strong>Historical Significance:</strong> <input type="text" id="dialog-historicalSignificance" required></p>
+                <p><strong>Architectural Style:</strong> <input type="text" id="dialog-architecturalStyle" required></p>
+                <p><strong>Condition:</strong> <input type="text" id="dialog-condition" required></p>
+                <p><strong>Ownership:</strong> <input type="text" id="dialog-ownership" required></p>
+                <p><strong>Conservation Efforts:</strong> <input type="text" id="dialog-conservationEfforts" required></p>
+                <p><strong>Threats:</strong> <input type="text" id="dialog-threats" required></p>
+                <p><strong>Community Involvement:</strong> <input type="text" id="dialog-communityInvolvement" required></p>
+                <button id="heritage-submit-btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Music Dialog -->
+    <div id="music-dialog" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contribute Music</h2>
+            <form id="music-form">
+                <p><strong>Name:</strong> <input type="text" id="music-name" required></p>
+                <p><strong>Region:</strong>
+                    <select id="music-region" required>
+                        <option value="" disabled selected>Select Region</option>
+                        <option value="North India">North India</option>
+                        <option value="South India">South India</option>
+                        <option value="East India">East India</option>
+                        <option value="West India">West India</option>
+                        <option value="NorthEast India">NorthEast India</option>
+                    </select>
+                </p>
+                <p><strong>Description:</strong> <textarea id="music-description" required></textarea></p>
+                <p><strong>Image:</strong> <input type="file" id="music-image" accept="image/*" required></p>
+                <button id="music-submit-btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dance Dialog -->
+    <div id="dance-dialog" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contribute Dance</h2>
+            <form id="dance-form">
+                <p><strong>Name:</strong> <input type="text" id="dance-name" required></p>
+                <p><strong>Type:</strong>
+                    <input type="radio" name="dance-type" value="Solo" required> Solo
+                    <input type="radio" name="dance-type" value="Group" required> Group
+                </p>
+                <p><strong>Origin:</strong> <input type="text" id="dance-origin" required></p>
+                <p><strong>Description:</strong> <textarea id="dance-description" required></textarea></p>
+                <p><strong>Image:</strong> <input type="file" id="dance-image" accept="image/*" required></p>
+                <button id="dance-submit-btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="javascript/footer.js"></script>
+    <script src="javascript/contribute.js"></script>
+    <script src="javascript/header.js"></script>
+</body>
+</html>

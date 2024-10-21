@@ -32,9 +32,9 @@ function displayMusic(musicList) {
 }
 
 function openDialog(title, region,description, imageUrl) {
-    document.getElementById('dialogTitle').innerText = title;
-    document.getElementById('dialogRegion').innerText = region;
-    document.getElementById('dialogDescription').innerText = description;
+    document.getElementById('dialogTitle').innerText = `Name:${title}`;
+    document.getElementById('dialogRegion').innerText = `Region:${region}`;
+    document.getElementById('dialogDescription').innerText = `Description:${description}`;
     document.getElementById('dialogImage').style.backgroundImage = `url('${imageUrl}')`;
     document.getElementById('dialogImage').style.height = '200px'; // Set height for the image
     document.getElementById('musicDialog').style.display = 'block';
@@ -89,6 +89,22 @@ async function searchMusic() {
         });
     }
     }
+
+    function filterCards() {
+        var selectedRegion = document.getElementById('regionFilter').value;
+        var cards = document.querySelectorAll('.music-card');
+
+        cards.forEach(function(card) {
+            var cardRegion = card.getAttribute('data-region');
+
+            if (selectedRegion === 'None' || cardRegion === selectedRegion) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
 
 
 // Initial fetch

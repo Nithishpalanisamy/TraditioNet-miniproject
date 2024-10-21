@@ -1,48 +1,62 @@
 @import url(header.css);
 @import url(footer.css);
 
-
 #music-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center; /* Center align vertically */
-    margin: 20px; /* Add margin for spacing */
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
 }
 
 #music-header h1 {
-    flex: 1; /* Allow the heading to take available space */
-    text-align: center; /* Center the text */
-    margin: 0; /* Remove default margin */
-    color: black; /* Heading color */
+    margin: 0;
+    color: black;
 }
 
-#music-header .search-container {
+.filter-search-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px; /* Add some space between the heading and the filter/search line */
+}
+
+.filter-container {
     display: flex;
     align-items: center;
-    position: relative; /* For icon positioning */
 }
 
-#music-header input[type="text"] {
-    width: 250px; /* Adjust width as needed */
-    padding: 10px 40px; /* Padding for text and icon */
-    margin-bottom: 20px; /* Space below the search input */
-    border: 1px solid #ccc; /* Border style */
-    border-radius: 20px; /* Rounded corners */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
-    font-size: 16px; /* Font size for input */
+#regionFilter {
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 16px;
 }
 
-#music-header input[type="text"]:focus {
-    border-color: #6a5acd; /* Change border color on focus */
-    box-shadow: 0 0 10px rgba(106, 90, 205, 0.5); /* Add shadow on focus */
+.search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
-#music-header .search-icon {
-    position: absolute; /* Position icon relative to input */
-    right: 15px; /* Space from left edge */
-    top: 40%; /* Center vertically */
-    transform: translateY(-50%); /* Adjust position */
-    color: #004ba0; /* Icon color */
+#search-bar {
+    width: 250px;
+    padding: 10px 40px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 16px;
+}
+
+#search-bar:focus {
+    border-color: #6a5acd;
+    box-shadow: 0 0 10px rgba(106, 90, 205, 0.5);
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #004ba0;
 }
 
 body.music-page {
@@ -100,10 +114,11 @@ body.music-page {
 
 .dialog-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    max-width: 800px;
     display: flex;
     border-radius: 10px;
 }
@@ -117,7 +132,24 @@ body.music-page {
 }
 
 .dialog-text {
+    width: 60%;
     color: black;
+}
+
+.dialog-text h2 {
+    margin: 0;
+}
+
+.dialog-text h2:nth-child(1) {
+    margin-bottom: 10px;
+}
+
+.dialog-text h2:nth-child(2) {
+    margin-bottom: 10px;
+}
+
+.dialog-text p {
+    margin-top: 10px;
 }
 
 .close {
@@ -128,8 +160,7 @@ body.music-page {
     cursor: pointer;
 }
 
-.text-center
-{
+.text-center {
     margin-top: 20px;
     color: black;
 }
@@ -138,4 +169,3 @@ input[type="text"] {
     width: 50%; /* Adjust width as needed */
     margin-bottom: 20px; /* Space below the search input */
 }
-

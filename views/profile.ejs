@@ -23,28 +23,27 @@
                     <p><strong>Location:</strong> <%= location %></p>
                     <p><strong>Interests:</strong> <%= interests %></p>
                 </div>
-                <button id="editProfileBtn" class="edit-button">Edit Profile</button>
-
-                <!-- Dialog box for editing profile -->
-                <div id="editProfileDialog" class="dialog" style="display:none;">
-                    <form action="/profile/<%= email %>/edit" method="POST" enctype="multipart/form-data">
-                        <div class="dialog-header">
-                            <h2>Edit Profile</h2>
-                            <button type="button" class="close-btn" onclick="closeDialog()">X</button>
-                        </div>
-                        <label for="location">Location:</label>
-                        <input type="text" name="location" value="<%= location %>">
-                        
-                        <label for="interests">Interests:</label>
-                        <textarea name="interests"><%= interests %></textarea>
-                        
-                        <label for="userphoto">Profile Photo:</label>
-                        <input type="file" name="userphoto">
-                        
-                        <button type="submit" class="save-button">Save</button>
-                    </form>
-                </div>
+                <button id="editProfileBtn" class="edit-button">Edit Profile</button>             
             </div>
+        </div>
+        <!-- Dialog box for editing profile -->
+        <div id="editProfileDialog" class="dialog" style="display:none;">
+            <form action="/profile/<%= email %>/edit" method="POST" enctype="multipart/form-data">
+                <div class="dialog-header">
+                    <h2>Edit Profile</h2>
+                    <button type="button" class="close-btn" onclick="closeDialog()">X</button>
+                </div>
+                <label for="location">Location:</label>
+                <input type="text" name="location" value="<%= location %>">
+                
+                <label for="interests">Interests:</label>
+                <textarea name="interests"><%= interests %></textarea>
+                
+                <label for="userphoto">Profile Photo:</label>
+                <input type="file" name="userphoto">
+                
+                <button type="submit" class="save-button">Save</button>
+            </form>
         </div>
 
         <!-- Posts Section -->

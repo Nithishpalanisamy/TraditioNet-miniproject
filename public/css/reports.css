@@ -1,0 +1,61 @@
+@import url(header.css);
+@import url(footer.css);
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Light background */
+    color: #343a40; /* Dark text */
+}
+
+h1 {
+    color: #007bff; /* Bootstrap primary color */
+    font-weight: bold; /* Bold title */
+}
+
+.card {
+    height: 100%; /* Ensure card takes full height of the parent */
+}
+
+.card-header {
+    background-color: #dc3545; /* Danger background */
+    font-weight: bold; /* Bold header text */
+}
+
+.card-img {
+    height: 200px; /* Fixed height for images */
+    width: 100%; /* Ensure image takes full width */
+    object-fit: cover; /* Ensure images cover the area */
+}
+
+.card-body p {
+    margin: 0.5rem 0; /* Margins for body text */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Danger color */
+    border-color: #dc3545; /* Border color */
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker on hover */
+    border-color: #bd2130; /* Darker border on hover */
+}
+
+.modal-header {
+    background-color: #dc3545; /* Modal header */
+    color: white; /* White text */
+}
+
+.modal-footer {
+    justify-content: space-between; /* Space between buttons */
+}
+
+.container {
+    padding: 20px; /* Added padding for container */
+    margin-top: 50px; /* Space from the top */
+}
+
+#header-container, #footer-container {
+    padding: 20px; /* Consistent padding for header and footer */
+}
+

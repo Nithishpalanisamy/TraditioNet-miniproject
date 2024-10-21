@@ -18,16 +18,17 @@
 
 <div class="container">
     <div id="music-header" class="heading">
-        <h1 class="text-center">Indian Traditional Music List</h1>
-        <div class="search-container">
-            <i class="fas fa-search search-icon"></i> <!-- Font Awesome Search Icon -->
-            <input type="text" id="search-bar" placeholder="Search music by name..." oninput="searchHeritage()">
-        </div>
+        <h1 class="text-center">Indian Heritage Sites List</h1>
     </div>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search dance forms..." oninput="searchHeritage()">
+        <span id="no-results-message" style="color: red; display: none;">No results found.</span>
+    </div>
+    
     <div class="card-container">
         <!-- Heritage cards will be dynamically inserted here -->
         <% heritageSites.forEach(site => { %>
-            <div class="card" onclick="openDialog('<%= site.siteName %>', '<%= site.location %>', '<%= site.typeOfHeritage %>', '<%= site.historicalSignificance %>', '<%= site.architecturalStyle %>', '<%= site.condition %>', '<%= site.ownership %>', '<%= site.conservationEfforts %>', '<%= site.threats %>', '<%= site.communityInvolvement %>')">
+            <div class="card" data-name="<%= site.siteName.toLowerCase() %>" onclick="openDialog('<%= site.siteName %>', '<%= site.typeOfHeritage %>','<%= site.location %>', '<%= site.historicalSignificance %>', '<%= site.architecturalStyle %>', '<%= site.condition %>', '<%= site.ownership %>', '<%= site.conservationEfforts %>', '<%= site.threats %>', '<%= site.communityInvolvement %>')">
                 <span><h2 class="name text"><%= site.siteName %></h2></span>
             </div>
         <% }) %>
@@ -54,8 +55,8 @@
         </div>
     </div>
 </div>
-
-<a href="/music"><button>Back</button></a>
+<br>
+<center><a href="/explore.html"><button>Back</button></a></center></br>
  <!--footer-->
  <div id="footer-container"></div>
 <script src="/javascript/header.js"></script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contributions</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admincontribute.css"> <!-- Link to your CSS file -->
+    <!-- <script src="/script.js"></script> Link to your JavaScript file -->
+</head>
+<body>
+    <div id="header-container"></div>
+    <div class="container">
+        <h1>Heritage Contributions</h1>
+
+        <div class="card-container">
+            <% contributeHeritages.forEach(contribution => { %>
+                <div class="card">
+                    <h2><%= contribution.location %></h2>
+                    <p><strong>Type of Heritage:</strong> <%= contribution.typeOfHeritage %></p>
+                    <p><strong>Historical Significance:</strong> <%= contribution.historicalSignificance %></p>
+                    <p><strong>Architectural Style:</strong> <%= contribution.architecturalStyle %></p>
+                    <p><strong>Condition:</strong> <%= contribution.condition %></p>
+                    <p><strong>Ownership:</strong> <%= contribution.ownership %></p>
+                    <p><strong>Community Involvement:</strong> <%= contribution.communityInvolvement %></p>
+        
+                    <!-- <div class="button-group">
+                        <button onclick="ignoreContribution('<%= contribution._id %>')">Ignore</button>
+                        <button onclick="addContribution('<%= contribution._id %>')">Add</button>
+                    </div> -->
+                </div>
+            <% }); %>
+        </div>
+        
+    </div>
+    <div id="footer-container"></div>
+
+    <script>
+        // JavaScript functions to handle Ignore and Add actions
+        async function ignoreContribution(id) {
+            try {
+                const response = await fetch(`/ignore-contribution/${id}`, {
+                    method: 'DELETE'
+                });
+                if (response.ok) {
+                    alert('Contribution ignored successfully!');
+                    location.reload(); // Reload the page to refresh contributions
+                } else {
+                    alert('Error ignoring contribution: ' + await response.text());
+                }
+            } catch (error) {
+                alert('Network error: ' + error);
+            }
+        }
+
+        async function addContribution(id) {
+            try {
+                const response = await fetch(`/add-contribution/${id}`, {
+                    method: 'POST'
+                });
+                if (response.ok) {
+                    alert('Contribution added successfully!');
+                    location.reload(); // Reload the page to refresh contributions
+                } else {
+                    alert('Error adding contribution: ' + await response.text());
+                }
+            } catch (error) {
+                alert('Network error: ' + error);
+            }
+        }
+    </script>
+    <script src="/javascript/header.js"></script>
+    <script src="/javascript/footer.js"></script>
+</body>
+</html>

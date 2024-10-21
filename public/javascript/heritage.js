@@ -20,46 +20,38 @@ function closeDialog() {
     document.getElementById('dialog').style.display = 'none';
 }
 
-async function searchHeritage() {
-    const query = document.getElementById('search-bar').value.trim(); // Get search input
+function searchHeritage() {
+    const query = document.getElementById('search-input').value.trim().toLowerCase(); // Get the search input
+    const cards = document.querySelectorAll('.card'); // Get all dance cards
+    const noResultsMessage = document.getElementById('no-results-message'); // Get the no results message element
 
-    if (query.length > 0) {
-        // Fetch filtered heritage sites from the server
-        const response = await fetch(`/searchHeritage?q=${query}`);
-        const filteredHeritage = await response.json();
-
-        const heritageContainer = document.getElementById('heritage-container');
-        heritageContainer.innerHTML = ''; // Clear the previous list
-
-        if (filteredHeritage.length > 0) {
-            // Append new filtered results using the card layout
-            filteredHeritage.forEach(site => {
-                const heritageCard = `
-                    <div class="card" onclick="openDialog('${site.siteName}', '${site.location}', '${site.typeOfHeritage}', '${site.historicalSignificance}', '${site.architecturalStyle}', '${site.condition}', '${site.ownership}', '${site.conservationEfforts}', '${site.threats}', '${site.communityInvolvement}')">
-                        <h2 class="name text">${site.siteName}</h2>
-                    </div>`;
-                heritageContainer.innerHTML += heritageCard;
-            });
-        } else {
-            // No heritage sites found message
-            heritageContainer.innerHTML = '<p>No heritage sites found.</p>';
-        }
-    } else {
-        // Fetch and reload the original list if search input is empty
-        const response = await fetch('/heritage');
-        const heritageList = await response.json();
-        const parser = new DOMParser();
-        const htmlDoc = parser.parseFromString(await response.text(), 'text/html');
-        document.getElementById('heritage-container').innerHTML = htmlDoc.querySelector('#heritage-container').innerHTML;
-
-        // Append original heritage sites
-        heritageList.forEach(site => {
-            const heritageCard = `
-                <div class="card" onclick="openDialog('${site.siteName}', '${site.location}', '${site.typeOfHeritage}', '${site.historicalSignificance}', '${site.architecturalStyle}', '${site.condition}', '${site.ownership}', '${site.conservationEfforts}', '${site.threats}', '${site.communityInvolvement}')">
-                    <h2 class="name text">${site.siteName}</h2>
-                </div>`;
-            heritageContainer.innerHTML += heritageCard;
+    // If the query is empty, show all cards and hide the no results message
+    if (query.length === 0) {
+        cards.forEach(card => {
+            card.style.display = 'block'; // Show all cards
         });
+        noResultsMessage.style.display = 'none'; // Hide the no results message
+        return; // Exit the function early
+    }
+
+    let hasResults = false; // Flag to check if there are any results
+
+    // Filter cards based on the search query
+    cards.forEach(card => {
+        const cardName = card.getAttribute('data-name'); // Get the card's name
+        if (cardName.startsWith(query)) {
+            card.style.display = 'block'; // Show the card if it matches
+            hasResults = true; // Set the flag to true if at least one card matches
+        } else {
+            card.style.display = 'none'; // Hide the card if it doesn't match
+        }
+    });
+
+    // Show or hide the no results message based on the results
+    if (!hasResults) {
+        noResultsMessage.style.display = 'inline'; // Show the no results message
+    } else {
+        noResultsMessage.style.display = 'none'; // Hide the no results message
     }
 }
 

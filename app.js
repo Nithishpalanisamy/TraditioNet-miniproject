@@ -15,6 +15,10 @@ const Heritage = require('./models/Heritage');
 const Musics = require('./models/Musics');
 const User = require('./models/User');  // User model
 const Profile = require('./models/Profile');  // Profile model
+// const ContributeHeritage = require('../models/contributeHeritage');
+// const ContributeMusic = require('../models/contributeMusic');
+// const ContributeDance = require('../models/contributeDance');
+
 
 // Import routes
 const musicRoutes = require('./routes/musicRoutes');
@@ -23,6 +27,10 @@ const heritageRoutes = require('./routes/heritageRoutes');
 const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profileRoutes');
 const adminRoutes = require('./routes/admin');
+const contributeHeritageRoute = require('./routes/contributeHeritageRoutes');
+const contributeMusicRoute = require('./routes/contributeMusicRoutes');
+const contributeDanceRoute = require('./routes/contributeDanceRoutes');
+const contributionsRouter = require('./routes/contributions');
 
 dotenv.config();
 
@@ -91,6 +99,12 @@ app.use('/heritage', heritageRoutes); // Mount the heritage routes at /heritage
 app.use('/profile', profileRoutes);
 
 app.use('/admin',adminRoutes);
+
+app.use('/contribute-heritage', contributeHeritageRoute);
+app.use('/contribute-music', contributeMusicRoute);
+app.use('/contribute-dance', contributeDanceRoute);
+app.use('/', contributionsRouter);
+
 
 // Route to handle blog form submission
 app.post('/submit', uploadBlog.single('image'), (req, res) => {

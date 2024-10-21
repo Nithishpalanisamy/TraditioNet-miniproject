@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
 
 const reportSchema = new mongoose.Schema({
-    postId: { type: mongoose.Schema.Types.ObjectId, ref: 'Post', required: true }, // Reference to the post
+    postId: { type: mongoose.Schema.Types.ObjectId, ref: 'Post', required: true }, 
     topic: String,
     username: String,
     email: String,
     photo: String,
     paragraph: String,
     reason: { type: String, required: true },
-    reportedAt: { type: Date, default: Date.now } // Timestamp of when the report was created
+    reportedAt: { type: Date, default: Date.now }, 
+    reportCount: { type: Number, default: 1 }, 
+    reportedBy: { type: [String], default: [] } 
 });
 
 const Report = mongoose.model('Report', reportSchema);

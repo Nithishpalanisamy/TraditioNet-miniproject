@@ -15,18 +15,33 @@
 <body class="music-page">
     <div id="header-container"></div>
 
+    
     <div id="music-header" class="heading">
         <h1 class="text-center">Indian Traditional Music List</h1>
-        <div class="search-container">
-            <i class="fas fa-search search-icon"></i> <!-- Font Awesome Search Icon -->
-            <input type="text" id="search-bar" placeholder="Search music by name..." oninput="searchMusic()">
+        <div class="filter-search-container">
+            <div class="filter-container">
+                <label for="regionFilter" style="color: black;">Filter by Region:</label>
+                <select id="regionFilter" onchange="filterCards()">
+                    <option value="None">None</option>
+                    <option value="North India">North India</option>
+                    <option value="South India">South India</option>
+                    <option value="West India">West India</option>
+                    <option value="East India">East India</option>
+                    <option value="North East India">North East India</option>
+                </select>
+            </div>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i> <!-- Font Awesome Search Icon -->
+                <input type="text" id="search-bar" placeholder="Search music by name..." oninput="searchMusic()">
+            </div>
         </div>
     </div>
+    
 
     <div class="music-container" id="music-container">
         <% if (musicList.length > 0) { %>
         <% musicList.forEach(music => { %>
-            <div class="music-card" onclick="openDialog('<%= music.name %>', Region='<%= music.region %>','<%= music.description %>', '<%= music.imageUrl %>')">
+            <div class="music-card" data-region="<%= music.region %>" onclick="openDialog('<%= music.name %>', '<%= music.region %>', '<%= music.description %>', '<%= music.imageUrl %>')">
                 <div class="card-image" style="background-image: url('<%= music.imageUrl %>');"></div>
                 <div class="card-title"><%= music.name %></div>
             </div>
@@ -35,24 +50,23 @@
             <p>No music found.</p>
         <% } %>
     </div>
+    
+    
 
     <!-- Dialog Box -->
-    <div id="musicDialog" class="dialog">
-        <div class="dialog-content">
-            <span class="close" onclick="closeDialog()">&times;</span>
-            <div class="dialog-image" id="dialogImage"></div>
-            <div class="dialog-text">
-                <h2 id="dialogTitle"></h2>
-                <h2 id="dialogRegion"></h2>
-                <p id="dialogDescription"></p>
-            </div>
+    <!-- Dialog Box -->
+<div id="musicDialog" class="dialog">
+    <div class="dialog-content">
+        <span class="close" onclick="closeDialog()">&times;</span>
+        <div class="dialog-image" id="dialogImage"></div>
+        <div class="dialog-text">
+            <h2 class="dialog-title" id="dialogTitle"></h2>
+            <h2 class="dialog-region" id="dialogRegion"></h2>
+            <p class="dialog-description" id="dialogDescription"></p>
         </div>
     </div>
-    <br/>
-    <div class="heading">
-        <h1 class="text-center">Indian Traditional Dance List</h1>
-        <a href="/dance"><button>Dance List</button></a>
     </div>
+
     <!--footer-->
     <div id="footer-container"></div>
 

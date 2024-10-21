@@ -6,38 +6,77 @@
     <title>Dance Forms</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+    rel="stylesheet" />
     <link rel="stylesheet" href="/css/dance.css">
 </head>
 <body>
     <div id="header-container"></div>
-<div class="container">
-    <h1>Dance Forms</h1>
-    <div class="card-container">
-        <!-- Dance cards will be dynamically inserted here -->
-        <% dances.forEach(dance => { %>
-            <div class="card" onclick="openDialog('<%= dance.name %>', '<%= dance.type %>', '<%= dance.origin %>', '<%= dance.description %>')">
-                <span><h2 class="name"><%= dance.name %></h2></span>
-            </div>
-        <% }) %>
-    </div>
-</div>
+    <div class="container">
+        <h1>Dance Forms</h1>
 
-<!-- Dialog box -->
-<div id="dialog" class="dialog">
-    <div class="dialog-content">
-        <span class="close" onclick="closeDialog()">&times;</span>
-        <div class="dialog-details">
-            <img id="dialog-image" src="" alt="Dance Image">
-            <div id="dialog-info">
-                <h2 id="dialog-name"></h2>
-                <p><strong>Type:</strong> <span id="dialog-type"></span></p>
-                <p><strong>Origin:</strong> <span id="dialog-origin"></span></p>
-                <p><strong>Description:</strong> <span id="dialog-description"></span></p>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search dance forms..." oninput="searchDance()">
+            <span id="no-results-message" style="color: red; display: none;">No results found.</span>
+        </div>
+    
+        <!-- Filtering Dropdowns -->
+        <div class="filter-container" style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <div>
+                <label for="typeFilter">Type:</label>
+                <select id="typeFilter" onchange="filterDanceCards()">
+                    <option value="None">None</option>
+                    <option value="Solo">Solo</option>
+                    <option value="Group">Group</option>
+                </select>
+            </div>
+    
+            <div>
+                <label for="originFilter">Origin:</label>
+                <select id="originFilter" onchange="filterDanceCards()">
+                    <option value="None">None</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Orissa">Orissa</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                </select>
+            </div>
+        </div>
+    
+       
+    
+        <div class="card-container" id="card-container">
+            <% dances.forEach(dance => { %>
+                <div class="card" data-name="<%= dance.name.toLowerCase() %>" data-type="<%= dance.type %>" data-origin="<%= dance.origin %>" onclick="openDialog('<%= dance.name %>', '<%= dance.type %>', '<%= dance.origin %>', '<%= dance.description %>', '<%= dance.imageUrl %>')">
+                   
+                    <div class='text'><span><%= dance.name %></span></div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    
+    
+    
+    <!-- Dialog box -->
+    <div id="dialog" class="dialog">
+        <div class="dialog-content">
+            <span class="close" onclick="closeDialog()">&times;</span>
+            <div class="dialog-details">
+                <img id="dialog-image" src="">
+                <div id="dialog-info">
+                    <h2 id="dialog-name"></h2>
+                    <p><strong>Type:</strong> <span id="dialog-type"></span></p>
+                    <p><strong>Origin:</strong> <span id="dialog-origin"></span></p>
+                    <p><strong>Description:</strong> <span id="dialog-description"></span></p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<center><a href="/music"><button>back</button></a></center>
+    
+<center><a href="/explore.html"><button>back</button></a></center>
 
 <script src="/javascript/footer.js"></script>
 <script src="/javascript/header.js"></script>

@@ -53,8 +53,7 @@
                             <p class="email"><%= post.email %></p>
                         </div>
                     </div>
-                    <!-- Inside your post rendering loop -->
-                    <button class="report-button" data-post-id="<%= post._id %>" onclick="reportPost('<%= post._id %>')">Report</button>
+                    <button class="report-button" data-post-id="<%= post._id %>" onclick="reportPost('<%= post.id %>','<%= post.email %>')">Report</button>
                 </div>
                 <div class="card-bottom">
                     <div class="post-image-container">
@@ -69,15 +68,11 @@
                     </div>
                 </div>
             </div>
-        <% }) %>
+        <% }) %>        
     </div>
-    
-    
-    
-    
+
     <!--footer-->
     <div id="footer-container"></div>
-
 
     <script src="javascript/postblog.js"></script>
     <script src="javascript/header.js"></script>
