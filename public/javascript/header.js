@@ -38,9 +38,23 @@ document.addEventListener('DOMContentLoaded', function () {
   const user = JSON.parse(localStorage.getItem('user'));
   const authContainer = document.getElementById('auth-container');
 
-  // Check if user is logged in
   if (user && user.email) {
-    // Fetch user profile data
+    if (user.email === 'nithish162965@gmail.com') {
+      const adminButton = `
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Admin
+          </a>
+          <div class="dropdown-menu" aria-labelledby="adminDropdown">
+            <a class="dropdown-item" href="/contributions">Contributions</a>
+            <a class="dropdown-item" href="/admin/report">Reports</a>
+          </div>
+        </li>
+      `;
+      document.querySelector('.navbar-nav').innerHTML += adminButton;
+      attachAdminDropdownEventListener();
+    }
+
     fetch(`/profile/json/${encodeURIComponent(user.email)}`)
       .then(response => {
         if (!response.ok) {
@@ -49,25 +63,27 @@ document.addEventListener('DOMContentLoaded', function () {
         return response.json();
       })
       .then(profile => {
-        console.log('Profile data fetched:', profile); // Debugging log
-
-        // Check if profile has user photo
-        const userImage = profile.userphoto || 'images/i2.jpg'; // Use profile photo or default image
+        const userImage = profile.userphoto || 'images/i2.jpg';
         displayUserDropdown(userImage, user.email);
       })
       .catch(error => {
         console.error('Error fetching profile:', error);
-        // User exists but profile not fetched, show default image
         displayUserDropdown('images/i2.jpg', user.email);
       });
   } else {
-    // User is not logged in, show sign-in button
     authContainer.innerHTML = `<button class="btn" id="signin-button" type="button">Sign In</button>`;
     document.getElementById('signin-button').addEventListener('click', () => {
       window.location.href = 'login.html';
     });
   }
 });
+
+function attachAdminDropdownEventListener() {
+  document.getElementById('adminDropdown').addEventListener('click', function () {
+    const dropdownMenu = this.nextElementSibling;
+    dropdownMenu.classList.toggle('show');
+  });
+}
 
 function displayUserDropdown(userImage, email) {
   const authContainer = document.getElementById('auth-container');
@@ -93,10 +109,7 @@ function displayUserDropdown(userImage, email) {
 }
 
 function logout() {
-  // Clear user data from local storage
   localStorage.removeItem('user');
-
-  // Redirect to home page
   window.location.href = 'home.html';
 }
 
